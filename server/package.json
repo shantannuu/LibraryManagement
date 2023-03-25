@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build":"cd server && npm install && cd .. && cd client && npm install && npm run build",
-    "start":"nodemon server/server.js",
-    "test":"echo \"Error: no test specified\" && exit 1",
+    "build": "cd server && npm install && cd .. && cd client && npm install && npm run build",
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/server.js"
   },
   "author": "",
@@ -17,6 +17,6 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.1",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.22"
   }
 }
