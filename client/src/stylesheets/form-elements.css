@@ -1,0 +1,165 @@
+input,
+textarea,
+select {
+    min-height: 40px;
+    width: 100%;
+    border: gray 1px solid;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.ant-form-item {
+    margin-bottom: 8px;
+}
+
+textarea {
+    padding-top: 15px;
+    min-height: 60px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border: rgb(60, 60, 60) solid 1px;
+}
+
+button {
+    height: 40px;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.form-container .imgBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.form-container .imgBx::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(225deg, #e91e63, #03a9f4);
+    mix-blend-mode: screen
+}
+
+.form-container .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-container .contentBx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.form-container .contentBx .formBx{
+    width: 50%;
+}
+
+.form-container .contentBx .formBx form{
+    width: 100% !important;
+}
+
+.form-container .contentBx .formBx h1{
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #ff4584;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.form-container .contentBx .formBx .ant-form-item,.input-btn{
+    margin-bottom: 10px !important;
+}
+
+.form-container .contentBx .formBx .ant-form-item label {
+    font-size: 16px !important;
+    margin-bottom: 5px !important;
+    display: inline-block !important;
+    color: #607d8b !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+}
+
+.form-container .ant-form-item-control input {
+    width: 100% !important;
+    padding: 5px 2px !important;
+    outline: none !important;
+    font-weight: 400 !important;
+    border: 1px solid #607d8b !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    color: #607d8b !important;
+    background: transparent !important;
+    border-radius: 15px !important;
+}
+
+.rounded2 {
+    border-radius: 30px;
+    background: #ff4584;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100% !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    margin-top: 20px;
+
+}
+
+.rounded2:hover{
+    background: #f53677;
+}
+
+.form-container .contentBx .formBx .input-btn .Link{
+color: #607d8b;
+}
+
+@media (max-width:768px){
+    .form-container .imgBx{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:100%;
+    }
+    .form-container .contentBx{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .form-container .contentBx .formBx{
+        width: 100%;
+        padding: 40px;
+        background: rgb(255 255 255 / 0.9);
+        margin: 50px;
+    }
+}
