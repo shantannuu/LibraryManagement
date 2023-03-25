@@ -24,12 +24,14 @@ const path = require("path");
 __dirname = path.resolve();
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname,"/client/build")));
+    app.use(express.static(path.join(__dirname,"..","/client/build")));
 
     app.get("*",(req,res)=>{
-        res.sendFile(path.resolve(__dirname,"client","build","index.html"))
+        res.sendFile(path.resolve(__dirname,"..","client","build","index.html"))
     })
 }
+
+console.log(__dirname)
 
 app.listen(port , () => console.log(`Server is running on ${port}`));
 
