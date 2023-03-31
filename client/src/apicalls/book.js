@@ -43,9 +43,9 @@ export const deleteBook = async (id) => {
 export const getBookById = async (id) => {
     try {
         const response = await axiosInstance.get(`/api/books/get-book-by-id/${id}`);
-        
+
         return response.data;
-        
+
     } catch (error) {
         throw error;
     }
@@ -55,9 +55,9 @@ export const getBookById = async (id) => {
 export const searchBook = async (key) => {
     try {
         const response = await axiosInstance.get(`/api/books/search-book/${key}`);
-        
+
         return response.data;
-        
+
     } catch (error) {
         throw error;
     }

@@ -4,8 +4,8 @@ import { userSlice } from "./userSlice";
 
 
 export const store = configureStore({
-    reducer : {
-        loaders : loaderSlice.reducer,
-        users : userSlice.reducer,
+    reducer: {
+        loaders: loaderSlice.reducer,
+        users: userSlice.reducer,
     }
 });

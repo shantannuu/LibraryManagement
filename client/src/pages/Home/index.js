@@ -1,4 +1,4 @@
-import { Col, message, Row, Badge, Tabs } from 'antd';
+import { message, Tabs } from 'antd';
 import TabPane from 'antd/es/tabs/TabPane';
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
@@ -81,6 +81,8 @@ function Home() {
 
         <input className='rounded w-100' type="text" onChange={(e) => searchHandler(e.target.value)} />
       </div>
+    
+
 
       <div>
         <Tabs defaultActiveKey='1' className='pr-2 pl-2'>
@@ -165,7 +167,7 @@ function Home() {
       <div class="about">
 
         <div class="about_image">
-          <img src='https://res.cloudinary.com/dyhf9rqfz/image/upload/v1679211051/about_vp3jdc.png'/>
+          <img src='https://res.cloudinary.com/dyhf9rqfz/image/upload/v1679211051/about_vp3jdc.png' />
         </div>
         <div class="about_tag">
           <h1>About Us</h1>

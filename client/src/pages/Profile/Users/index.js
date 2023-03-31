@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { deleteBook, GetAllBooks } from '../../../apicalls/book';
 import Button from '../../../components/Button';
 import { HideLoading, showLoading } from '../../../redux/loaderSlice';
 

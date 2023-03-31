@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      {loading && <Loader/>}
+      {loading && <Loader />}
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<ProtectedRoutes><Home /></ProtectedRoutes>}></Route>

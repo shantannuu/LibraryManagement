@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const issueSchema = new mongoose.Schema({
     book: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'books'
+        ref: 'books'
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'users'
+        ref: 'users'
     },
     issueDate: {
         type: Date,
@@ -35,7 +35,7 @@ const issueSchema = new mongoose.Schema({
     },
     issuedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'users',
+        ref: 'users',
     },
 }, { timestamps: true })
 

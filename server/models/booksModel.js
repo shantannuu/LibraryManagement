@@ -11,9 +11,9 @@ const bookSchema = new mongoose.Schema({
         required: true,
 
     },
-    category:{
-        type:String,
-        required:true,
+    category: {
+        type: String,
+        required: true,
     },
     image: {
         type: String,

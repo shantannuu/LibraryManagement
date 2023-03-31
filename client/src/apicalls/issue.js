@@ -2,7 +2,7 @@ import { axiosInstance } from "./axiosinstance";
 
 export const issueBook = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/issues/issue-new-book",payload);
+        const response = await axiosInstance.post("/api/issues/issue-new-book", payload);
         return response.data;
     } catch (error) {
         throw error;
@@ -12,7 +12,7 @@ export const issueBook = async (payload) => {
 
 export const GetIssues = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/issues/get-issues",payload);
+        const response = await axiosInstance.post("/api/issues/get-issues", payload);
         return response.data;
     } catch (error) {
         throw error;
@@ -22,7 +22,7 @@ export const GetIssues = async (payload) => {
 
 export const ReturnBook = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/issues/return-book",payload);
+        const response = await axiosInstance.post("/api/issues/return-book", payload);
         return response.data;
     } catch (error) {
         throw error;
@@ -32,7 +32,7 @@ export const ReturnBook = async (payload) => {
 
 export const EditIssue = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/issues/edit-issue",payload);
+        const response = await axiosInstance.post("/api/issues/edit-issue", payload);
         return response.data;
     } catch (error) {
         throw error;
@@ -42,7 +42,7 @@ export const EditIssue = async (payload) => {
 
 export const DeleteIssues = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/issues/delete-issue",payload);
+        const response = await axiosInstance.post("/api/issues/delete-issue", payload);
         return response.data;
     } catch (error) {
         throw error;

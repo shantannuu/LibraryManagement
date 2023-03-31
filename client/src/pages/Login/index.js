@@ -38,7 +38,7 @@ function Login() {
     }, [])
 
     return (
-        
+
         <div className='form-container'>
             <div className='imgBx'>
                 <img src="https://res.cloudinary.com/dyhf9rqfz/image/upload/v1679334972/peakpx_xrzyvw.jpg" />
@@ -72,7 +72,7 @@ function Login() {
 
                         <div className='input-btn'>
                             <Button title='Login' type='submit'></Button>
-                            
+
                         </div>
                         <div className='input-btn'>
                             <Link className='text-sm Link' to='/register'>Dont have an account ? CLick here to Register</Link>
@@ -81,7 +81,7 @@ function Login() {
                 </div>
 
             </div>
-            
+
         </div>
 
     )

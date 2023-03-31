@@ -10,22 +10,22 @@ function Button({
     disabled
 }) {
     let className = ''
-    if(title === "Login" || title === "Register"){
+    if (title === "Login" || title === "Register") {
         className = 'rounded2 '
-    }else{
+    } else {
         className = fullWidth ? 'w-100 rounded ' : "pr-2 pl-2 rounded ";
         if (variant === 'contained' && !disabled) {
             className += 'bg-btn-' + color + ' text-white remove-border';
         }
-        else if (variant === 'outlined'  && !disabled) {
+        else if (variant === 'outlined' && !disabled) {
             className += 'bg-border-' + color + ' text-blue';
         }
-    
-        if(disabled){
+
+        if (disabled) {
             className += 'disabled-btn';
         }
     }
-    
+
 
 
 

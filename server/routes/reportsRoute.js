@@ -5,90 +5,90 @@ const Issue = require('../models/issueModel')
 const User = require('../models/usersModel')
 const authMiddleware = require('../middlewares/authMiddleware');
 
-router.get("/get-reports", authMiddleware ,async (req, res) => {
+router.get("/get-reports", authMiddleware, async (req, res) => {
     try {
-        
+
         const books = await Book.find();
         const BooksCount = books.length;
-        const totalBooksCopiesCount = books.reduce((acc,book)=>{
+        const totalBooksCopiesCount = books.reduce((acc, book) => {
             return acc + book.totalCopies;
-        },0)
-        const availableBooksCopiesCount = books.reduce((acc,book)=>{
+        }, 0)
+        const availableBooksCopiesCount = books.reduce((acc, book) => {
             return acc + book.availableCopies;
-        },0)
+        }, 0)
         const issuesBooksCopiesCount = totalBooksCopiesCount - availableBooksCopiesCount;
-        
+
 
         const users = await User.find()
         const usersCount = users.length;
-        const patronCount = users.filter((user)=> user.role === "patron").length;
+        const patronCount = users.filter((user) => user.role === "patron").length;
         const librariansCount = users.filter(
             (user) => user.role === "librarian"
         ).length
-        const adminsCount = users.filter((user)=> user.role === "admin").length
-    
-            
+        const adminsCount = users.filter((user) => user.role === "admin").length
+
+
         const issues = await Issue.find();
         const issuesCount = issues.length;
         const returnedIssuesCount = issues.filter(
-            (issue)=> issue.status === "Returned"
+            (issue) => issue.status === "Returned"
         ).length;
 
         const pendingIssuesCount = issuesCount - returnedIssuesCount;
 
-        const rentCollected = issues.reduce((acc,issue)=>{
-            if(issue.returnedDate){
+        const rentCollected = issues.reduce((acc, issue) => {
+            if (issue.returnedDate) {
                 return acc + issue.rent;
-            }else{
+            } else {
                 return acc
             }
-        },0)
+        }, 0)
 
-        const fineCollected = issues.reduce((acc,issue)=>{
-            if(issue.returnedDate){
+        const fineCollected = issues.reduce((acc, issue) => {
+            if (issue.returnedDate) {
                 return acc + issue.fine;
-            }else{
+            } else {
                 return acc
             }
-        },0)
+        }, 0)
 
         const totalCollected = rentCollected + fineCollected
 
-        const rentPending = issues.reduce((acc,issue)=>{
-            if(issue.returnedDate === null){
+        const rentPending = issues.reduce((acc, issue) => {
+            if (issue.returnedDate === null) {
                 return acc + issue.rent;
-            }else{
+            } else {
                 return acc
             }
-        },0)
+        }, 0)
 
         return res.send({
             success: true,
-            data : {
-            books :{
-                BooksCount,
-                totalBooksCopiesCount,
-                availableBooksCopiesCount,
-                issuesBooksCopiesCount
-            },
-            users :{
-                usersCount,
-                patronCount,
-                librariansCount,
-                adminsCount
-            },
-            issues:{
-                issuesCount,
-                returnedIssuesCount,
-                pendingIssuesCount
-            },
-            revenue:{
-                rentCollected,
-                fineCollected,
-                totalCollected,
-                rentPending
-            },
-        }
+            data: {
+                books: {
+                    BooksCount,
+                    totalBooksCopiesCount,
+                    availableBooksCopiesCount,
+                    issuesBooksCopiesCount
+                },
+                users: {
+                    usersCount,
+                    patronCount,
+                    librariansCount,
+                    adminsCount
+                },
+                issues: {
+                    issuesCount,
+                    returnedIssuesCount,
+                    pendingIssuesCount
+                },
+                revenue: {
+                    rentCollected,
+                    fineCollected,
+                    totalCollected,
+                    rentPending
+                },
+            }
         })
     } catch (error) {
         return res.send({

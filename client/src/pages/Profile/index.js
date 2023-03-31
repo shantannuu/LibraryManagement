@@ -1,5 +1,5 @@
 import React from 'react'
-import {Tabs} from "antd"
+import { Tabs } from "antd"
 import TabPane from 'antd/es/tabs/TabPane'
 import Books from './Books'
 import Users from './Users'
@@ -9,43 +9,43 @@ import BasicDetails from './BasicDetails'
 import BorrowedBooks from './BorrowedBooks'
 function Profile() {
 
-  const { user } = useSelector((state)=>state.users)
+  const { user } = useSelector((state) => state.users)
   const role = user.role;
   console.log(role)
   return (
     <div>
       <Tabs defaultActiveKey='1'>
-      
+
         <TabPane tab="General" key="1">
-          <BasicDetails/>
+          <BasicDetails />
         </TabPane>
 
         {role === "patron" && (
-        <TabPane tab="Books Borrowed" key="2">
-          <BorrowedBooks/>
-        </TabPane>)}
+          <TabPane tab="Books Borrowed" key="2">
+            <BorrowedBooks />
+          </TabPane>)}
 
         {role !== "patron" && (<TabPane tab="Books" key="3">
-          <Books/>
+          <Books />
         </TabPane>)}
-        
+
         {role !== "patron" && (<TabPane tab="Patrons" key="4">
-          <Users  role='patron'/>
+          <Users role='patron' />
         </TabPane>)}
 
         {role === "admin" && (
-        <TabPane tab="Librarians" key="5">
-          <Users role='librarian'/>
-        </TabPane>)}
+          <TabPane tab="Librarians" key="5">
+            <Users role='librarian' />
+          </TabPane>)}
 
         {role === "admin" && (<TabPane tab="Admins" key="6">
-          <Users  role='admin'/>
+          <Users role='admin' />
         </TabPane>)}
 
         {role === "admin" && (
-        <TabPane tab="Reports" key="7">
-          <Reports/>
-        </TabPane>)}
+          <TabPane tab="Reports" key="7">
+            <Reports />
+          </TabPane>)}
       </Tabs>
     </div>
   )

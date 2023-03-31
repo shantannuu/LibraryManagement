@@ -2,47 +2,46 @@ import React from 'react'
 import { Col, Modal, Row } from "antd"
 import { Form, message } from "antd"
 import Button from '../../../components/Button';
-import { Link, useNavigate } from 'react-router-dom';
 import { addBook, editBook } from '../../../apicalls/book';
 import { useDispatch, useSelector } from 'react-redux';
 import { HideLoading, showLoading } from '../../../redux/loaderSlice';
 
-function BookForm({ open, setOpen , reloadBooks , formType , setFormType , selectedBook ,setSelectedBook}) {
+function BookForm({ open, setOpen, reloadBooks, formType, setFormType, selectedBook, setSelectedBook }) {
 
-  const {user} = useSelector(state => state.users);
+  const { user } = useSelector(state => state.users);
 
   const dispatch = useDispatch()
 
   const onFinish = async (values) => {
-    try{
+    try {
       dispatch(showLoading());
       values.createdBy = user._id;
-      
+
       let response = null;
-        if(formType === "add"){
-          values.availableCopies = values.totalCopies;
-          response = await addBook(values);
-        }else{
-          values._id = selectedBook._id
-          response = await editBook(values);
-        } 
-      dispatch(HideLoading());
-      if(response.success){
-          message.success(response.message);
-          reloadBooks();
-          setOpen(false);
-      }else{
-          dispatch(HideLoading());
-          message.error(response.message)
+      if (formType === "add") {
+        values.availableCopies = values.totalCopies;
+        response = await addBook(values);
+      } else {
+        values._id = selectedBook._id
+        response = await editBook(values);
       }
-  }catch(error){
+      dispatch(HideLoading());
+      if (response.success) {
+        message.success(response.message);
+        reloadBooks();
+        setOpen(false);
+      } else {
+        dispatch(HideLoading());
+        message.error(response.message)
+      }
+    } catch (error) {
       message.error(error.message);
-  }
+    }
   }
 
   return (
     <Modal
-      title= {formType === "add" ? "Add Book" : "Edit Book"}
+      title={formType === "add" ? "Add Book" : "Edit Book"}
       open={open}
       onCancel={() => setOpen(false)}
       centered
@@ -50,10 +49,11 @@ function BookForm({ open, setOpen , reloadBooks , formType , setFormType , selec
       footer={null}
     >
 
-      <Form layout="vertical" onFinish={onFinish} 
-      initialValues={{...selectedBook,
-      publishedDate : selectedBook ?.publishedDate ? new Date(selectedBook?.publishedDate).toISOString().split('T')[0] : null
-      }}
+      <Form layout="vertical" onFinish={onFinish}
+        initialValues={{
+          ...selectedBook,
+          publishedDate: selectedBook?.publishedDate ? new Date(selectedBook?.publishedDate).toISOString().split('T')[0] : null
+        }}
       >
         <Row
           gutter={[20, 20]}
@@ -203,7 +203,7 @@ function BookForm({ open, setOpen , reloadBooks , formType , setFormType , selec
         </Row>
 
         <div className='flex justify-end gap-2 mt-1'>
-          <Button title='Cancel' type='button' variant='outlined' onClick={()=> setOpen(false)}></Button>
+          <Button title='Cancel' type='button' variant='outlined' onClick={() => setOpen(false)}></Button>
           <Button title='Save' type="submit"></Button>
         </div>
       </Form>

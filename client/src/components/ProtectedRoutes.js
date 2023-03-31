@@ -37,11 +37,6 @@ function ProtectedRoutes({ children }) {
         }
     }
 
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
-      };
-
-
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -54,7 +49,7 @@ function ProtectedRoutes({ children }) {
 
 
     return (
-        
+
         <div>{user && <>
             <div className=''>
                 <div className='header p-2 bg-primary flex justify-between'>
@@ -71,9 +66,9 @@ function ProtectedRoutes({ children }) {
                         }}></i>
                     </div>
                 </div>
-                
+
                 <div className='pb-3 content pr-2 pl-2'>{children}</div>
-                
+
             </div>
         </>}</div>
     )

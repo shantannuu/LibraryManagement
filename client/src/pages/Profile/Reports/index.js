@@ -114,10 +114,10 @@ function Reports() {
           </div>
         </Col>
       </Row>
-      {/* RENEVUE */}
+      {/* REVENUE */}
       <h1 className='report-h1'>Revenue</h1>
       <Row gutter={[16, 16]}>
-        
+
         <Col span={6}>
           <div className='card-report shadow'>
             <div className='card-report-1 flex justify-between'>
@@ -150,19 +150,19 @@ function Reports() {
             <div className='card-report-1 flex justify-between'>
               <h1><i class="bi bi-currency-rupee"></i> {reports?.revenue?.rentPending}</h1>
               <div>
-              <i class="bi bi-cash-coin"></i><i class="bi bi-exclamation-lg"></i>
+                <i class="bi bi-cash-coin"></i><i class="bi bi-exclamation-lg"></i>
               </div>
-              
+
             </div>
             <h2>Rend Pending</h2>
           </div>
         </Col>
       </Row>
-      
+
       {/* Issue */}
       <h1 className='report-h1'>Issues</h1>
       <Row gutter={[16, 16]}>
-        
+
         <Col span={6}>
           <div className='card-report shadow'>
             <div className='card-report-1 flex justify-between'>
@@ -192,9 +192,9 @@ function Reports() {
         </Col>
       </Row>
 
-      
 
-    
+
+
     </div >
   )
 }

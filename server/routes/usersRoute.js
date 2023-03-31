@@ -99,7 +99,7 @@ router.get("/get-all-users/:role", authMiddleware, async (req, res) => {
     try {
 
         const users = await User.find({ role: req.params.role }).sort({
-            createdAt : -1 ,
+            createdAt: -1,
         });
         return res.send({
             success: true,
